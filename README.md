@@ -13,7 +13,6 @@ backup-scripts/
 │
 ├── README.md
 ├── LICENSE
-├── .gitignore
 │
 ├── docs/
 │   ├── Backup Scripts for Development Projects.md
