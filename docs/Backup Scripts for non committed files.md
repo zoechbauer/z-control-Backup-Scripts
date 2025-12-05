@@ -43,8 +43,8 @@ Scripts and instructions are provided for:
 
 For more details, see the README files in each example project:
 
-- [examples/backup-non-committed-project-files/calculator/tools/README.md](examples/backup-non-committed-project-files/calculator/tools/README.md)
-- [examples/backup-non-committed-project-files/z-control landing-page/tools/README.md](examples/backup-non-committed-project-files/z-control%20landing-page/tools/README.md)
+- [examples/backup-non-committed-project-files/calculator/tools/README.md](/examples/backup-non-committed-project-files/calculator/tools/README.md)
+- [examples/backup-non-committed-project-files/z-control landing-page/tools/README.md](/examples/backup-non-committed-project-files/z-control%20landing-page/tools/README.md)
 
 ---
 _Last updated: December 5, 2025_
