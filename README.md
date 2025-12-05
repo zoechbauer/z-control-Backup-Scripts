@@ -16,8 +16,7 @@ backup-scripts/
 │
 ├── docs/
 │   ├── Backup Scripts for Development Projects.md
-│   ├── Backup Scripts for non committed files.md
-│   └── usage.md
+│   └── Backup Scripts for non committed files.md
 │
 ├── examples/
 │   ├── README.md
@@ -32,7 +31,10 @@ backup-scripts/
 │   │   │   ├── logging-folders-only/
 │   │   │   │   ├── BACKUP.csv
 │   │   │   │   └── BACKUP.xlsx
-│   │   └── (other backup-dev-projects folders)
+│   │   └── backup-non-committed-dev-projects/
+│   │       ├── backup-dev-div.ps1
+│   │       ├── backup-dev-div-task.bat
+│   │       └── README.md
 │   ├── backup-non-committed-project-files/
 │   │   └── calculator/
 │   │       └── tools/
@@ -96,10 +98,10 @@ This project is open source and available under the [MIT License](LICENSE).
 
 **Hans Zöchbauer**
 
-- Email: hans.zoechbauer@gmail.com
+- Email: [hans.zoechbauer@gmail.com](mailto:hans.zoechbauer@gmail.com)
 - GitHub: [zoechbauer](https://github.com/zoechbauer)
 
-For questions or support contact [@zoechbauer](mailto:hans.zoechbauer@gmail.com)
+If you have questions, need support, or want to contribute, feel free to reach out via email or open an issue on GitHub.
 
 ---
 

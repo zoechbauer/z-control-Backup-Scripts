@@ -23,6 +23,9 @@ This folder contains the subfolders:
 - **logging-folders-only**  
   Contains `BACKUP.csv` and `BACKUP.xlsx` which show the log output when the parameter `FoldersOnly` is used.
 
+- **backup-non-committed-dev-projects**  
+  Contains scripts for backing up non-committed development projects. These scripts use different source and backup destinations and have distinct names compared to the main backup script.
+
 ## Usage
 
 1. Open a command prompt in this folder.
