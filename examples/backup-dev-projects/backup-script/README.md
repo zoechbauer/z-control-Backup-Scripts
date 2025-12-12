@@ -43,7 +43,7 @@ This folder contains the subfolders:
 
 4. To run the PowerShell script directly with custom parameters:
    ```
-   powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\backup-dev.ps1" -source "C:\SOURCE-ACTIVE" -backupDest "C:\BACKUP\DEV-PROJECTS" -logFile "C:\BACKUP\DEV-PROJECTS\backup.csv" -LogMode FoldersAndFiles
+   "C:\Program Files\PowerShell\7\pwsh.exe" -NoProfile -ExecutionPolicy Bypass -File ".\backup-dev.ps1" -source "C:\SOURCE-ACTIVE" -backupDest "C:\BACKUP\DEV-PROJECTS" -logFile "C:\BACKUP\DEV-PROJECTS\backup.csv" -LogMode FoldersAndFiles
    ```
 
 ## Scheduled Task

@@ -5,6 +5,8 @@ Welcome to the **z-control Backup Scripts** repository! This project contains a 
 > **Note:**  
 Normally, a project is committed to GitHub or another backup service. However, for cases like simple tests, examples, or temporary projects, these scripts can help you remove unwanted large folders (such as dependencies and build outputs) and copy a lean version of your projects to a folder that is automatically synchronized with a service like OneDrive.
 
+There are also scripts available to log disk space usage within specified directories, helping you monitor and manage your storage effectively.
+
 
 ## 📁 Project Structure
 
@@ -16,7 +18,9 @@ backup-scripts/
 │
 ├── docs/
 │   ├── Backup Scripts for Development Projects.md
-│   └── Backup Scripts for non committed files.md
+│   ├── Backup Scripts for non committed files.md
+│   ├── Log Disk Space Scripts.md
+│   └── Upgrade PowerShell 5 to 7.md
 │
 ├── examples/
 │   ├── README.md
@@ -35,17 +39,32 @@ backup-scripts/
 │   │       ├── backup-dev-div.ps1
 │   │       ├── backup-dev-div-task.bat
 │   │       └── README.md
-│   ├── backup-non-committed-project-files/
-│   │   └── calculator/
-│   │       └── tools/
-│   │           ├── backup_non_committed_files.ps1
-│   │           ├── backup_non_committed_files.txt
-│   │           └── README.md
+├── backup-non-committed-project-files/
+│   ├── calculator/
+│   │   └── tools/
+│   │       ├── backup_non_committed_files.ps1
+│   │       ├── backup_non_committed_files.txt
+│   │       └── README.md
 │   └── z-control landing-page/
 │       └── tools/
 │           ├── backup_non_committed_files.ps1
 │           ├── backup_non_committed_files.txt
 │           └── README.md
+│
+├── log-disk-space/
+│   ├── README.md
+│   ├── log-folder-sizes.bat
+│   ├── log-folder-sizes.ps1
+│   ├── example-one-project-unlimited-subfolders/
+│   │   ├── terminal-log.txt
+│   │   ├── FolderSizesLog.csv
+│   │   ├── FolderSizesLog.txt
+│   │   └── FolderSizesLog.xlsx
+│   └── example-source-active-searchDepth-2/
+│       ├── terminal-log.txt
+│       ├── FolderSizesLog.csv
+│       ├── FolderSizesLog.txt
+│       └── FolderSizesLog.xlsx
 ```
 
 ## 🚀 Getting Started

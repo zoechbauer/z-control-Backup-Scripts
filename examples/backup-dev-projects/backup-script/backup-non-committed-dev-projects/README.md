@@ -45,7 +45,7 @@ These scripts use different source and backup destinations and have distinct nam
 
 4. To run the PowerShell script directly with custom parameters:
    ```
-   powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\backup-dev-div.ps1" -source "C:\SOURCE-ACTIVE" -backupDest "C:\BACKUP\NON_COMMITTED" -logFile "C:\BACKUP\NON_COMMITTED\backup.csv" -LogMode FoldersAndFiles
+   "C:\Program Files\PowerShell\7\pwsh.exe" -NoProfile -ExecutionPolicy Bypass -File ".\backup-dev-div.ps1" -source "C:\SOURCE-ACTIVE" -backupDest "C:\BACKUP\NON_COMMITTED" -logFile "C:\BACKUP\NON_COMMITTED\backup.csv" -LogMode FoldersAndFiles
    ```
 
 ## Scheduled Task
@@ -63,5 +63,5 @@ These scripts use different source and backup destinations and have distinct nam
 
 ---
 
-_Last updated: December 5, 2025_
+_Last updated: December 12, 2025_
 
