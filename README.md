@@ -1,12 +1,13 @@
 # z-control Backup Scripts 🚀
 
-Welcome to the **z-control Backup Scripts** repository! This project contains a collection of PowerShell and batch scripts designed to automate and streamline the backup process for development environments. Whether you're looking to back up your code, configurations, or other important files, these scripts provide a solid foundation to get you started.
+Welcome to the **z-control Backup Scripts** repository!  
+This project provides a collection of PowerShell and batch scripts to automate and streamline the backup process for development environments and to log disk space usage.  
+Whether you need to back up your code, configurations, or other important files, or monitor and analyze disk usage across your projects, these scripts provide a robust and flexible foundation.
 
 > **Note:**  
-Normally, a project is committed to GitHub or another backup service. However, for cases like simple tests, examples, or temporary projects, these scripts can help you remove unwanted large folders (such as dependencies and build outputs) and copy a lean version of your projects to a folder that is automatically synchronized with a service like OneDrive.
+While most projects are committed to GitHub or another backup service, these scripts are especially useful for simple tests, examples, or temporary projects. They help you remove unwanted large folders (such as dependencies and build outputs), copy a lean version of your projects to a folder synchronized with a service like OneDrive, and audit disk space usage.
 
-There are also scripts available to log disk space usage within specified directories, helping you monitor and manage your storage effectively.
-
+---
 
 ## 📁 Project Structure
 
@@ -39,32 +40,31 @@ backup-scripts/
 │   │       ├── backup-dev-div.ps1
 │   │       ├── backup-dev-div-task.bat
 │   │       └── README.md
-├── backup-non-committed-project-files/
-│   ├── calculator/
-│   │   └── tools/
-│   │       ├── backup_non_committed_files.ps1
-│   │       ├── backup_non_committed_files.txt
-│   │       └── README.md
-│   └── z-control landing-page/
-│       └── tools/
-│           ├── backup_non_committed_files.ps1
-│           ├── backup_non_committed_files.txt
-│           └── README.md
-│
-├── log-disk-space/
-│   ├── README.md
-│   ├── log-folder-sizes.bat
-│   ├── log-folder-sizes.ps1
-│   ├── example-one-project-unlimited-subfolders/
-│   │   ├── terminal-log.txt
-│   │   ├── FolderSizesLog.csv
-│   │   ├── FolderSizesLog.txt
-│   │   └── FolderSizesLog.xlsx
-│   └── example-source-active-searchDepth-2/
-│       ├── terminal-log.txt
-│       ├── FolderSizesLog.csv
-│       ├── FolderSizesLog.txt
-│       └── FolderSizesLog.xlsx
+│   ├── backup-non-committed-project-files/
+│   │   ├── calculator/
+│   │   │   └── tools/
+│   │   │       ├── backup_non_committed_files.ps1
+│   │   │       ├── backup_non_committed_files.txt
+│   │   │       └── README.md
+│   │   └── z-control landing-page/
+│   │       └── tools/
+│   │           ├── backup_non_committed_files.ps1
+│   │           ├── backup_non_committed_files.txt
+│   │           └── README.md
+│   ├── log-disk-space/
+│   │   ├── README.md
+│   │   ├── log-folder-sizes.bat
+│   │   ├── log-folder-sizes.ps1
+│   │   ├── example-one-project-unlimited-subfolders/
+│   │   │   ├── terminal-log.txt
+│   │   │   ├── FolderSizesLog.csv
+│   │   │   ├── FolderSizesLog.txt
+│   │   │   └── FolderSizesLog.xlsx
+│   │   └── example-source-active-searchDepth-2/
+│   │       ├── terminal-log.txt
+│   │       ├── FolderSizesLog.csv
+│   │       ├── FolderSizesLog.txt
+│   │       └── FolderSizesLog.xlsx
 ```
 
 ## 🚀 Getting Started
@@ -101,6 +101,12 @@ All documentation lives in [`docs/`](docs/):
   Guide for backing up files and folders not typically committed to version control (e.g., `.github`, `.vscode`, `.env.local`).  
   Includes usage for example projects like Calculator and z-control landing-page.
 
+- [Log Disk Space Scripts](docs/Log%20Disk%20Space%20Scripts.md):  
+  Guide for logging disk space usage, including usage instructions, script details, and example outputs.
+
+- [Upgrade PowerShell 5 to 7](docs/Upgrade%20PowerShell%205%20to%207.md):  
+  Step-by-step instructions for upgrading from Windows PowerShell 5.1 to PowerShell 7, including integration with VS Code and scheduled tasks.
+
 ## 📝 Features
 
 - Recursively back up project folders and files
@@ -108,6 +114,8 @@ All documentation lives in [`docs/`](docs/):
 - Log processed items to CSV (folders only or folders and files)
 - Example scripts for non-committed files
 - Ready for scheduled automation via batch files
+- **Log disk space usage** for any directory, with flexible depth and output formats (TXT, CSV, Excel-ready)
+- Example logs and Excel files for disk usage analysis
 
 ## 📝 License
 
@@ -124,4 +132,4 @@ If you have questions, need support, or want to contribute, feel free to reach o
 
 ---
 
-_Last Updated: December 5, 2025_
+_Last Updated: December 12, 2025_
