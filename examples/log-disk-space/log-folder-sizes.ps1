@@ -54,8 +54,11 @@ Write-Host "Search Path: $SearchPath"
 Write-Host "Search Depth (-1 for unlimited): $SearchDepth"
 Write-Host "Script Path: $ScriptPath"
 Write-Host "Include Subfolders: $IncludeSubfolders"
-Write-Host "LogFile: $LogFile"
-Write-Host "CsvFile: $CsvFile"
+
+# Add trailing backslash to root paths like C:\
+if ($SearchPath.Length -eq 2 -and $SearchPath[1] -eq ":") {
+    $SearchPath = "$SearchPath\"
+}
 
 # Clear log and CSV files
 "" | Out-File -FilePath $LogFile

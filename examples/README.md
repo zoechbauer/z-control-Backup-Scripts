@@ -29,10 +29,10 @@ See the detailed guides in the [docs](../docs) folder for more information.
 
 ## 📁 Folder: `log-disk-space`
 
-Contains scripts to log the sizes of folders within a specified directory. Useful for monitoring disk usage, auditing project storage, and identifying large folders.
+Contains scripts to log the sizes of disk drives or folders within a specified directory. Useful for monitoring disk usage, auditing project storage, and identifying large folders.
 
 - **log-folder-sizes.bat**: Batch file to launch the PowerShell script. Supports specifying the root path, whether to include subfolders, and the search depth (including unlimited depth).
-- **log-folder-sizes.ps1**: PowerShell script that scans the specified directory and logs the size of each folder (and optionally subfolders) to both a CSV and a TXT file. Handles access errors gracefully and supports both PowerShell 5 and 7.
+- **log-folder-sizes.ps1**: PowerShell script that scans the specified directory or disk drive and logs the size of each folder (and optionally subfolders) to both a CSV and a TXT file. Handles access errors gracefully and supports both PowerShell 5 and 7.
 
 ### Example Folders
 
@@ -69,4 +69,4 @@ Contains documentation for all backup and logging scripts:
 
 ---
 
-_Last updated: December 12, 2025_
+_Last updated: December 13, 2025_

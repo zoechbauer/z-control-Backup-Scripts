@@ -1,11 +1,11 @@
 # Log Disk Space Scripts Usage Guide
 
-This guide explains how to use the provided PowerShell scripts to log disk space usage. These scripts help you monitor folder sizes within a specified directory, which is useful for auditing storage and identifying large folders.
+This guide explains how to use the provided PowerShell scripts to log disk space usage. These scripts help you monitor disk drive sizes or folder sizes within a specified directory, which is useful for auditing storage and identifying large folders.
 
 ## Purpose
 
 The backup scripts are designed to:
-- Scan a specified directory and log the size of each folder.
+- Scan a specified directory or disk drive and log the size of each folder.
 - Optionally include subfolders up to a specified depth (including unlimited depth).
 - Output the results to both a CSV and a TXT file for easy review and further processing.
 
@@ -63,4 +63,4 @@ For more details, see the README file in log-disk-space folder:
 
 - [examples/log-disk-space/README.md](/examples/log-disk-space/README.md)
 ---
-_Last updated: December 12, 2025_
+_Last updated: December 13, 2025_

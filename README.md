@@ -114,7 +114,7 @@ All documentation lives in [`docs/`](docs/):
 - Log processed items to CSV (folders only or folders and files)
 - Example scripts for non-committed files
 - Ready for scheduled automation via batch files
-- **Log disk space usage** for any directory, with flexible depth and output formats (TXT, CSV, Excel-ready)
+- **Log disk space usage** for any disk drive or directory, with flexible depth and output formats (TXT, CSV, Excel-ready)
 - Example logs and Excel files for disk usage analysis
 
 ## 📝 License
@@ -132,4 +132,4 @@ If you have questions, need support, or want to contribute, feel free to reach o
 
 ---
 
-_Last Updated: December 12, 2025_
+_Last Updated: December 13, 2025_
