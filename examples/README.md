@@ -1,6 +1,6 @@
 # Examples Overview
 
-This folder contains scripts and tools from my repositories to help back up non-committed files and folders from development projects, as well as utilities for logging disk space usage. These scripts are especially useful before deleting or migrating projects to ensure important configuration and environment files are not lost, and to monitor disk usage across your projects.
+This folder contains scripts and tools from my repositories to help back up non-committed files and folders from development projects, clean up unused or bulky dev project folders, and log disk space usage. These scripts are especially useful before deleting or migrating projects to ensure important configuration and environment files are not lost, and to monitor or reclaim disk usage across your projects.
 
 ---
 
@@ -27,6 +27,25 @@ See the detailed guides in the [docs](../docs) folder for more information.
 
 ---
 
+## 📁 Folder: `clean-dev-projects`
+
+Scripts for cleaning up development project folders by removing large or unnecessary directories (like `node_modules`, `www`, `dist`, and `.angular`).  
+Useful for reclaiming disk space in seldom-used or archived projects.
+
+- **cleanup-dev.ps1**: PowerShell script to recursively delete specified folders and log deletions (folders and/or files) to a CSV file.
+- **cleanup-dev-task.bat**: Batch file to run the PowerShell script with your chosen options. Can be run interactively or scheduled.
+
+### Usage
+
+- Run the batch file with:
+  ```
+  cleanup-dev-task.bat [SourcePath] [FoldersOnly|FoldersAndFiles]
+  ```
+  - Defaults to `C:\SOURCE-ACTIVE-DIV` and `FoldersAndFiles` if not specified.
+- See the [Clean Dev Projects Scripts documentation](../docs/Cleanup%20Development%20Projects%20Scripts.md) for full details.
+
+---
+
 ## 📁 Folder: `log-disk-space`
 
 Contains scripts to log the sizes of disk drives or folders within a specified directory. Useful for monitoring disk usage, auditing project storage, and identifying large folders.
@@ -48,13 +67,16 @@ See [log-disk-space/README.md](log-disk-space/README.md) for full usage and deta
 
 ## 📁 Folder: `docs`
 
-Contains documentation for all backup and logging scripts:
+Contains documentation for all backup, cleanup, and logging scripts:
 
 - **Backup Scripts for Development Projects.md**:  
   Guide for backing up entire development projects, with details on excluding unnecessary folders and automating backups.
 
 - **Backup Scripts for non committed files.md**:  
   Guide for backing up only non-committed files and folders, with usage instructions and customization tips.
+
+- **Cleanup Development Projects Scripts.md**:  
+  Guide for cleaning up dev project folders by deleting bulky or unnecessary directories and logging the results.
 
 - **Upgrade PowerShell 5 to 7.md**:  
   Step-by-step instructions for upgrading from Windows PowerShell 5.1 to PowerShell 7, including integration with VS Code and scheduled tasks.
@@ -69,4 +91,4 @@ Contains documentation for all backup and logging scripts:
 
 ---
 
-_Last updated: December 13, 2025_
+_Last updated: December 14, 2025_

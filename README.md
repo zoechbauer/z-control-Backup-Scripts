@@ -1,11 +1,11 @@
-# z-control Backup Scripts 🚀
+# z-control Backup & Cleanup Scripts 🚀
 
-Welcome to the **z-control Backup Scripts** repository!  
-This project provides a collection of PowerShell and batch scripts to automate and streamline the backup process for development environments and to log disk space usage.  
-Whether you need to back up your code, configurations, or other important files, or monitor and analyze disk usage across your projects, these scripts provide a robust and flexible foundation.
+Welcome to the **z-control Backup & Cleanup Scripts** repository!  
+This project provides a collection of PowerShell and batch scripts to automate and streamline the backup, cleanup, and disk space logging processes for development environments.  
+Whether you need to back up your code, configurations, or other important files, clean up bulky or unnecessary folders, or monitor and analyze disk usage across your projects, these scripts provide a robust and flexible foundation.
 
 > **Note:**  
-While most projects are committed to GitHub or another backup service, these scripts are especially useful for simple tests, examples, or temporary projects. They help you remove unwanted large folders (such as dependencies and build outputs), copy a lean version of your projects to a folder synchronized with a service like OneDrive, and audit disk space usage.
+While most projects are committed to GitHub or another backup service, these scripts are especially useful for simple tests, examples, or temporary projects. They help you remove unwanted large folders (such as dependencies and build outputs), copy a lean version of your projects to a folder synchronized with a service like OneDrive, clean up seldom-used dev projects, and audit disk space usage.
 
 ---
 
@@ -20,6 +20,7 @@ backup-scripts/
 ├── docs/
 │   ├── Backup Scripts for Development Projects.md
 │   ├── Backup Scripts for non committed files.md
+│   ├── Cleanup Development Projects Scripts.md
 │   ├── Log Disk Space Scripts.md
 │   └── Upgrade PowerShell 5 to 7.md
 │
@@ -51,6 +52,10 @@ backup-scripts/
 │   │           ├── backup_non_committed_files.ps1
 │   │           ├── backup_non_committed_files.txt
 │   │           └── README.md
+│   ├── clean-dev-projects/
+│   │   ├── cleanup-dev.ps1
+│   │   ├── cleanup-dev-task.bat
+│   │   └── README.md
 │   ├── log-disk-space/
 │   │   ├── README.md
 │   │   ├── log-folder-sizes.bat
@@ -72,7 +77,7 @@ backup-scripts/
 ### Prerequisites
 
 - **Microsoft PowerShell** (Windows)
-- Optionally, Windows Task Scheduler for automated backups
+- Optionally, Windows Task Scheduler for automated backups and cleanups
 
 ### Installation
 
@@ -101,6 +106,10 @@ All documentation lives in [`docs/`](docs/):
   Guide for backing up files and folders not typically committed to version control (e.g., `.github`, `.vscode`, `.env.local`).  
   Includes usage for example projects like Calculator and z-control landing-page.
 
+- [Cleanup Development Projects Scripts](docs/Cleanup%20Development%20Projects%20Scripts.md):  
+  Guide for cleaning up dev project folders by deleting bulky or unnecessary directories (like `node_modules`, `www`, `dist`, `.angular`) and logging the results.  
+  Includes usage of `cleanup-dev.ps1` and `cleanup-dev-task.bat`, logging options, and scheduling tips.
+
 - [Log Disk Space Scripts](docs/Log%20Disk%20Space%20Scripts.md):  
   Guide for logging disk space usage, including usage instructions, script details, and example outputs.
 
@@ -113,7 +122,9 @@ All documentation lives in [`docs/`](docs/):
 - Exclude common build and dependency folders (customizable)
 - Log processed items to CSV (folders only or folders and files)
 - Example scripts for non-committed files
-- Ready for scheduled automation via batch files
+- **Clean up dev projects** by deleting large or unnecessary folders (e.g., `node_modules`, `www`, `dist`, `.angular`)
+- Log all deleted folders and (optionally) files to CSV for audit
+- Ready for scheduled automation via batch files (for both backup and cleanup)
 - **Log disk space usage** for any disk drive or directory, with flexible depth and output formats (TXT, CSV, Excel-ready)
 - Example logs and Excel files for disk usage analysis
 
@@ -132,4 +143,4 @@ If you have questions, need support, or want to contribute, feel free to reach o
 
 ---
 
-_Last Updated: December 13, 2025_
+_Last Updated: December 14, 2025_
