@@ -3,7 +3,7 @@
     Logs the sizes of folders under a specified path to CSV and TXT files.
 
 .DESCRIPTION
-    Processes folders under $SearchPath. If $IncludeSubfolders is true, includes subfolders up to $SearchDepth.
+    Processes folders under $SearchPath. If $SearchDepth is greater than 0 or -1, includes subfolders up to $SearchDepth.
     If $SearchDepth is -1, all subfolders are processed recursively.
     Results are saved to $LogFile (TXT) and $CsvFile (CSV).
 
@@ -13,21 +13,12 @@
 .PARAMETER SearchDepth
     Depth for subfolder search (0 = top-level only, -1 = unlimited).
 
-.PARAMETER ScriptPath
-    Path where log files are saved.
-
-.PARAMETER IncludeSubfolders
-    If true, includes subfolders up to SearchDepth.
-
 .PARAMETER LogFile
-    Path to the TXT log file.
-
-.PARAMETER CsvFile
-    Path to the CSV log file.
+    Path to the CSV log file. The file will be overwritten on each run.
 
 .EXAMPLE
-    .\log-folder-sizes.ps1 -SearchPath "C:\SOURCE-ACTIVE" -SearchDepth 3 -IncludeSubfolders "true"
-    .\log-folder-sizes.ps1 -SearchPath "C:\SOURCE-ACTIVE" -SearchDepth -1 -IncludeSubfolders "true"
+    .\log-folder-sizes.ps1 -SearchPath "C:\SOURCE-ACTIVE" -SearchDepth 3 -LogFile "C:\Logs\FolderSizesLog.csv"
+    .\log-folder-sizes.ps1 -SearchPath "C:\SOURCE-ACTIVE" -SearchDepth -1 -LogFile "C:\Logs\FolderSizesLog.csv"
     .\log-folder-sizes.ps1
 
 .NOTES
@@ -37,32 +28,24 @@
 param(
     [string]$SearchPath = "C:\SOURCE-ACTIVE",
 	[int]$SearchDepth = 0,
-    [string]$ScriptPath = "C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space",
-    [string]$IncludeSubfolders = "false",
-    [string]$LogFile,
-    [string]$CsvFile
+    [string]$LogFile = "C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space\FolderSizesLog.csv"
 )
 
-# Force conversion of IncludeSubfolders to boolean
-$IncludeSubfolders = ("$IncludeSubfolders".ToLower() -eq "$true" -or "$IncludeSubfolders".ToLower() -eq "true" -or "$IncludeSubfolders" -eq "1")
-
-# Set default values for LogFile and CsvFile if not provided
-if (-not $LogFile) { $LogFile = Join-Path $ScriptPath "FolderSizesLog.txt" }
-if (-not $CsvFile) { $CsvFile = Join-Path $ScriptPath "FolderSizesLog.csv" }
-
-Write-Host "Search Path: $SearchPath"
-Write-Host "Search Depth (-1 for unlimited): $SearchDepth"
-Write-Host "Script Path: $ScriptPath"
-Write-Host "Include Subfolders: $IncludeSubfolders"
+Write-Host "Running log-folder-sizes.ps1"
+Write-Host "        SearchPath:         $SearchPath"
+Write-Host "        SearchDepth:        $SearchDepth  (-1 for unlimited)"
+Write-Host "        Log file:           $LogFile"
 
 # Add trailing backslash to root paths like C:\
 if ($SearchPath.Length -eq 2 -and $SearchPath[1] -eq ":") {
     $SearchPath = "$SearchPath\"
 }
 
-# Clear log and CSV files
-"" | Out-File -FilePath $LogFile
-"Folder;Size_MB;Access_Denied" | Out-File -FilePath $CsvFile
+# Clear log files and add headers
+"Folder;Size_MB;Access_Denied" | Out-File -FilePath $LogFile
+
+# Determine if subfolders should be included
+$IncludeSubfolders = ($SearchDepth -ne 0)
 
 if ($IncludeSubfolders) {
     if ($SearchDepth -eq -1) {
@@ -85,10 +68,8 @@ foreach ($folder in $folders) {
         $sizeMB = [math]::Round(-1.00, 2)
         $Access_Denied = "Access Denied"
     }
-    "$folderPath`t$sizeMB`t$Access_Denied" | Out-File -FilePath $LogFile -Append
-    "$folderPath;$sizeMB;$Access_Denied" | Out-File -FilePath $CsvFile -Append
+    "$folderPath;$sizeMB;$Access_Denied" | Out-File -FilePath $LogFile -Append
 }
 
 Write-Host "Results saved to:"
 Write-Host $LogFile
-Write-Host $CsvFile

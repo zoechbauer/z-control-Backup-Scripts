@@ -9,20 +9,21 @@
     If LogMode is "FoldersAndFiles", all files within deleted folders are also logged.
     The log file is always overwritten at the start of each run.
 
-.PARAMETER source
+.PARAMETER Source
     The root directory to clean. All subfolders are processed recursively.
-
-.PARAMETER logFile
-    Path to the CSV log file. The file will be overwritten on each run.
 
 .PARAMETER LogMode
     Controls logging:
         "FoldersOnly"      - Only deleted folders are logged.
         "FoldersAndFiles"  - Both deleted folders and all files within them are logged.
 
+.PARAMETER LogFile
+    Path to the CSV log file. The file will be overwritten on each run.
+
 .EXAMPLE
-    .\cleanup-dev.ps1 -source "C:\Projects" -LogMode "FoldersOnly"
-    .\cleanup-dev.ps1 -source "C:\Projects" -LogMode "FoldersAndFiles"
+    .\cleanup-dev.ps1 -Source "C:\Projects" -LogMode "FoldersOnly"
+    .\cleanup-dev.ps1 -Source "C:\Projects" -LogMode "FoldersAndFiles"
+    .\cleanup-dev.ps1 -Source "C:\Projects" -LogMode "FoldersAndFiles" -LogFile "C:\Logs\cleanup-log.csv"
 
 .NOTES
     - Only folders with exact names in the $deleteFolders array are deleted.
@@ -31,26 +32,31 @@
 #>
 
 param(
-    [string]$source = "C:\SOURCE-ACTIVE-DIV",
-    [string]$logFile = "C:\SOURCE-ACTIVE\backup-scripts\examples\clean-dev-projects\CLEANUP.csv",
+    [string]$Source = "C:\SOURCE-ACTIVE-DIV",
     [ValidateSet("FoldersOnly", "FoldersAndFiles")]
-    [string]$LogMode = "FoldersAndFiles"
+    [string]$LogMode = "FoldersAndFiles",
+    [string]$LogFile = "C:\SOURCE-ACTIVE\backup-scripts\examples\clean-dev-projects\CLEANUP.csv"
 )
 
+Write-Host "Running cleanup-dev.ps1"
+Write-Host "        Source:   $Source"
+Write-Host "        LogMode:  $LogMode"
+Write-Host "        Log file: $LogFile"
+
 # Always overwrite log file with header
-"Timestamp;Name;Type;Directory;Deleted;Full Path" | Out-File $logFile
+"Timestamp;Name;Type;Directory;Deleted;Full Path" | Out-File $LogFile
 
 # Function to log processed items
 function Write-CleanupItemLog {
     param (
-        [string]$name,
-        [string]$type,
-        [string]$directory,
-        [string]$deleted,
-        [string]$fullpath
+        [string]$Name,
+        [string]$Type,
+        [string]$Directory,
+        [string]$Deleted,
+        [string]$FullPath
     )
     $timestamp = Get-Date -Format "yyyy-MM-dd HH:mm:ss"
-    "$timestamp;$name;$type;$directory;$deleted;$fullpath" | Out-File $logFile -Append
+    "$timestamp;$Name;$Type;$Directory;$Deleted;$FullPath" | Out-File $LogFile -Append
 }
 
 # Folders to delete
@@ -59,9 +65,9 @@ $deleteFolders = @(".angular", "node_modules", "www", "dist")
 # Recursive cleanup function
 function Cleanup-ItemRecursive {
     param (
-        [string]$path
+        [string]$Path
     )
-    Get-ChildItem -Path $path -Force | ForEach-Object {
+    Get-ChildItem -Path $Path -Force | ForEach-Object {
         $item = $_
         if ($item.PSIsContainer) {
             if ($deleteFolders -contains $item.Name) {
@@ -87,6 +93,6 @@ function Cleanup-ItemRecursive {
 }
 
 # Start recursive cleanup
-Cleanup-ItemRecursive -path $source
+Cleanup-ItemRecursive -Path $Source
 
-Write-Host "Cleanup complete. All deleted items logged to $logFile"
+Write-Host "Cleanup complete. All deleted items logged to $LogFile"

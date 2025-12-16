@@ -1,11 +1,12 @@
-C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space>log-folder-sizes.bat C:\SOURCE-ACTIVE\ionic\qr-code subfolders -1
-Search Path: C:\SOURCE-ACTIVE\ionic\qr-code
-Search Depth (-1 for unlimited): -1
-Script Path: C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space
-Include Subfolders: True
-LogFile: C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space\FolderSizesLog.txt
-CsvFile: C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space\FolderSizesLog.csv
+C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space>call log-folder-sizes.bat C:\SOURCE-ACTIVE\ionic\qr-code -1
+Starting log-folder-sizes.ps1
+         SearchPath:        C:\SOURCE-ACTIVE\ionic\qr-code
+         SearchDepth:       -1
+         LogFile:           C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space\FolderSizesLog.csv
+         PSScriptPath:      C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space\log-folder-sizes.ps1
+Running log-folder-sizes.ps1
+        SearchPath:         C:\SOURCE-ACTIVE\ionic\qr-code
+        SearchDepth:        -1  (-1 for unlimited)
+        Log file:           C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space\FolderSizesLog.csv
 Results saved to:
-C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space\FolderSizesLog.txt
 C:\SOURCE-ACTIVE\backup-scripts\examples\log-disk-space\FolderSizesLog.csv
-Drücken Sie eine beliebige Taste . . . 

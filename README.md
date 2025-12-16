@@ -27,20 +27,19 @@ backup-scripts/
 ├── examples/
 │   ├── README.md
 │   ├── backup-dev-projects/
-│   │   ├── backup-script/
+│   │   ├── README.md
+│   │   ├── scripts/
 │   │   │   ├── backup-dev.ps1
 │   │   │   ├── backup-dev-task.bat
-│   │   │   ├── README.md
+│   │   ├── logging-examples/
 │   │   │   ├── logging-folders-and-files/
 │   │   │   │   ├── BACKUP.csv
 │   │   │   │   └── BACKUP.xlsx
-│   │   │   ├── logging-folders-only/
-│   │   │   │   ├── BACKUP.csv
-│   │   │   │   └── BACKUP.xlsx
-│   │   └── backup-non-committed-dev-projects/
-│   │       ├── backup-dev-div.ps1
-│   │       ├── backup-dev-div-task.bat
-│   │       └── README.md
+│   │   │   └── logging-folders-only/
+│   │   │       ├── BACKUP.csv
+│   │   │       └── BACKUP.xlsx
+│   │   └── parameter-examples/
+│   │       └── terminal-log.txt
 │   ├── backup-non-committed-project-files/
 │   │   ├── calculator/
 │   │   │   └── tools/
@@ -56,20 +55,20 @@ backup-scripts/
 │   │   ├── cleanup-dev.ps1
 │   │   ├── cleanup-dev-task.bat
 │   │   └── README.md
-│   ├── log-disk-space/
-│   │   ├── README.md
-│   │   ├── log-folder-sizes.bat
-│   │   ├── log-folder-sizes.ps1
-│   │   ├── example-one-project-unlimited-subfolders/
-│   │   │   ├── terminal-log.txt
-│   │   │   ├── FolderSizesLog.csv
-│   │   │   ├── FolderSizesLog.txt
-│   │   │   └── FolderSizesLog.xlsx
-│   │   └── example-source-active-searchDepth-2/
-│   │       ├── terminal-log.txt
-│   │       ├── FolderSizesLog.csv
-│   │       ├── FolderSizesLog.txt
-│   │       └── FolderSizesLog.xlsx
+│   └── log-disk-space/
+│       ├── README.md
+│       ├── log-folder-sizes.bat
+│       ├── log-folder-sizes.ps1
+│       ├── example-one-project-unlimited-subfolders/
+│       │   ├── terminal-log.txt
+│       │   ├── FolderSizesLog.csv
+│       │   ├── FolderSizesLog.txt
+│       │   └── FolderSizesLog.xlsx
+│       └── example-source-active-searchDepth-2/
+│           ├── terminal-log.txt
+│           ├── FolderSizesLog.csv
+│           ├── FolderSizesLog.txt
+│           └── FolderSizesLog.xlsx
 ```
 
 ## 🚀 Getting Started
@@ -125,8 +124,14 @@ All documentation lives in [`docs/`](docs/):
 - **Clean up dev projects** by deleting large or unnecessary folders (e.g., `node_modules`, `www`, `dist`, `.angular`)
 - Log all deleted folders and (optionally) files to CSV for audit
 - Ready for scheduled automation via batch files (for both backup and cleanup)
-- **Log disk space usage** for any disk drive or directory, with flexible depth and output formats (TXT, CSV, Excel-ready)
+- **Log disk space usage** for any disk drive or directory, with flexible depth and output formats (CSV, Excel-ready)
 - Example logs and Excel files for disk usage analysis
+
+## Scheduled Task
+
+- You can use all batch scripts in a Windows Scheduled Task to automate backups.
+- Set the task to run the batch file at your preferred schedule.
+- Ensure the user account running the task has permission to access the source and backup directories.
 
 ## 📝 License
 

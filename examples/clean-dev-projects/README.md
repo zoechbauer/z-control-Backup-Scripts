@@ -1,6 +1,6 @@
 # Clean Dev Projects Scripts
 
-This folder contains scripts and documentation for cleaning up development project folders. The scripts are designed to help you reclaim disk space and keep your dev environments tidy by removing large or unnecessary folders (such as `node_modules`, `www`, `dist`, and `.angular`) from project directories. The structure and usage are similar to the backup script folder, making it easy to automate or run interactively.
+This folder contains scripts and documentation for cleaning up development project folders. These tools help you reclaim disk space and keep your dev environments tidy by removing large or unnecessary folders (such as `node_modules`, `www`, `dist`, and `.angular`) from project directories. The structure and usage are similar to the backup script folder, making it easy to automate or run interactively.
 
 ---
 
@@ -9,11 +9,13 @@ This folder contains scripts and documentation for cleaning up development proje
 - **cleanup-dev.ps1**  
   PowerShell script that recursively deletes folders named `.angular`, `node_modules`, `www`, or `dist` at any depth within the specified source directory.  
   - Logs each deleted folder (and optionally, all files within) to a CSV file.
-  - Supports two logging modes: `FoldersOnly` (default) and `FoldersAndFiles`.
+  - Supports two logging modes: `FoldersOnly` and `FoldersAndFiles`.
+  - The log file path can be specified as a parameter; by default, it writes to `CLEANUP.csv` in the script directory.
 
 - **cleanup-dev-task.bat**  
   Batch file to launch the PowerShell cleanup script with the desired parameters.  
-  - Accepts a source path and logging mode as arguments.
+  - Accepts a source path, logging mode, and optional log file path as arguments.
+  - Uses the script’s directory for the default log file location.
   - Can be run manually or scheduled as a Windows Task for automated cleanups.
 
 ---
@@ -25,14 +27,15 @@ This folder contains scripts and documentation for cleaning up development proje
 1. Open a command prompt in this folder.
 2. Run the batch file with your desired options:
    ```
-   cleanup-dev-task.bat [SourcePath] [FoldersOnly|FoldersAndFiles]
+   cleanup-dev-task.bat [SourcePath] [FoldersOnly|FoldersAndFiles] [LogFilePath]
    ```
-   - If no parameters are provided, it defaults to cleaning `C:\SOURCE-ACTIVE-DIV` and logging both folders and files.
-   - Example:
+   - If no parameters are provided, it defaults to cleaning `C:\SOURCE-ACTIVE-DIV`, logging both folders and files, and writing the log to `CLEANUP.csv` in the script directory.
+   - Examples:
      ```
      cleanup-dev-task.bat D:\Projects FoldersOnly
-     cleanup-dev-task.bat "C:\My Projects" FoldersAndFiles
+     cleanup-dev-task.bat "C:\My Projects" FoldersAndFiles "C:\Logs\cleanup-log.csv"
      ```
+   - **Tip:** If your paths contain spaces, enclose them in quotes.
 
 ### Run PowerShell Script Directly
 
@@ -61,6 +64,7 @@ You can run the PowerShell script directly for more control:
 - The log file is overwritten on each run.
 - Use `FoldersOnly` to log only deleted folders, or `FoldersAndFiles` to log both folders and files.
 - You can customize the source path and log file location via parameters or by editing the batch/script defaults.
+- The default log file is `CLEANUP.csv` in the same directory as the batch script.
 
 ---
 
@@ -75,3 +79,5 @@ Timestamp;Name;Type;Directory;Deleted;Full Path
 ---
 
 For more details or advanced usage, see the inline documentation in each script.
+
+_Last updated: December 15, 2025_

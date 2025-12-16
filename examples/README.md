@@ -39,9 +39,9 @@ Useful for reclaiming disk space in seldom-used or archived projects.
 
 - Run the batch file with:
   ```
-  cleanup-dev-task.bat [SourcePath] [FoldersOnly|FoldersAndFiles]
+  cleanup-dev-task.bat [SourcePath] [FoldersOnly|FoldersAndFiles] [LogFilePath]
   ```
-  - Defaults to `C:\SOURCE-ACTIVE-DIV` and `FoldersAndFiles` if not specified.
+- If no parameters are provided, it defaults to cleaning `C:\SOURCE-ACTIVE-DIV`, logging both folders and files, and writing the log to `CLEANUP.csv` in the script directory.
 - See the [Clean Dev Projects Scripts documentation](../docs/Cleanup%20Development%20Projects%20Scripts.md) for full details.
 
 ---
@@ -50,15 +50,15 @@ Useful for reclaiming disk space in seldom-used or archived projects.
 
 Contains scripts to log the sizes of disk drives or folders within a specified directory. Useful for monitoring disk usage, auditing project storage, and identifying large folders.
 
-- **log-folder-sizes.bat**: Batch file to launch the PowerShell script. Supports specifying the root path, whether to include subfolders, and the search depth (including unlimited depth).
-- **log-folder-sizes.ps1**: PowerShell script that scans the specified directory or disk drive and logs the size of each folder (and optionally subfolders) to both a CSV and a TXT file. Handles access errors gracefully and supports both PowerShell 5 and 7.
+- **log-folder-sizes.bat**: Batch file to launch the PowerShell script. Supports specifying the root path, search depth (including unlimited depth), and log file location.
+- **log-folder-sizes.ps1**: PowerShell script that scans the specified directory or disk drive and logs the size of each folder (and optionally subfolders) to a CSV file. Handles access errors gracefully and supports both PowerShell 5 and 7.
 
 ### Example Folders
 
 This folder also contains 2 example folders.  
 Each example folder includes:
 - `terminal-log.txt`: Shows the used parameters for the script run.
-- `FolderSizesLog.txt` and `FolderSizesLog.csv`: The resulting logs in TXT and CSV format.
+- `FolderSizesLog.csv`: The resulting logs in CSV format.
 - An Excel file: Contains the imported CSV data, sorted descending by size.
 
 See [log-disk-space/README.md](log-disk-space/README.md) for full usage and details.

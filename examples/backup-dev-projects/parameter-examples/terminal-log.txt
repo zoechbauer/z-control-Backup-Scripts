@@ -1,0 +1,62 @@
+------------------------------------------------------------
+Example 1: only source and Backup Destination
+------------------------------------------------------------
+C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive>call backup-dev-task.bat "C:\tmp\cleanup - Kopie" C:\tmp\backup
+Starting backup-dev.ps1
+         SourcePath:      "C:\tmp\cleanup - Kopie"
+         DestinationPath: "C:\tmp\backup"
+         LogMode:         "FoldersAndFiles"
+         LogFilePath:     "C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\BACKUP.csv"
+         PSScriptPath:    "C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\backup-dev.ps1"
+Running backup-dev.ps1
+        Source:     C:\tmp\cleanup - Kopie
+        BackupDest: C:\tmp\backup
+        LogMode:    FoldersAndFiles
+        Log file:   C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\BACKUP.csv
+Backup complete. All items processed and logged to C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\BACKUP.csv
+
+------------------------------------------------------------
+Example 2: source and Backup Destination but wrong LogMode
+------------------------------------------------------------
+C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive>call backup-dev-task.bat "C:\tmp\cleanup - Kopie" C:\tmp\backup Folder
+Starting backup-dev.ps1
+         SourcePath:      "C:\tmp\cleanup - Kopie"
+         DestinationPath: "C:\tmp\backup"
+         LogMode:         "Folder"
+         LogFilePath:     "C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\BACKUP.csv"
+         PSScriptPath:    "C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\backup-dev.ps1"
+backup-dev.ps1: Cannot validate argument on parameter 'LogMode'. The argument "Folder" does not belong to the set "FoldersOnly;FoldersAndFiles" specified by the ValidateSet attribute. Supply an argument that is in the set and then try the command again.
+
+------------------------------------------------------------
+Example 3: source and Backup Destination and correct LogMode
+------------------------------------------------------------
+C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive>call backup-dev-task.bat "C:\tmp\cleanup - Kopie" C:\tmp\backup FoldersOnly
+Starting backup-dev.ps1
+         SourcePath:      "C:\tmp\cleanup - Kopie"
+         DestinationPath: "C:\tmp\backup"
+         LogMode:         "FoldersOnly"
+         LogFilePath:     "C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\BACKUP.csv"
+         PSScriptPath:    "C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\backup-dev.ps1"    
+Running backup-dev.ps1
+        Source:     C:\tmp\cleanup - Kopie
+        BackupDest: C:\tmp\backup
+        LogMode:    FoldersOnly
+        Log file:   C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\BACKUP.csv
+Backup complete. All items processed and logged to C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\BACKUP.csv
+
+------------------------------------------------------------
+Example 4: all parameters filled
+------------------------------------------------------------
+C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive>call backup-dev-task.bat "C:\tmp\cleanup - Kopie" C:\tmp\backup FoldersOnly c:\tmp\backup\backup.csv
+Starting backup-dev.ps1
+         SourcePath:      "C:\tmp\cleanup - Kopie"
+         DestinationPath: "C:\tmp\backup"
+         LogMode:         "FoldersOnly"
+         LogFilePath:     "c:\tmp\backup\backup.csv"
+         PSScriptPath:    "C:\Tools\powershell-scripts\BackupDevProj\BackupSourceActive\backup-dev.ps1"    
+Running backup-dev.ps1
+        Source:     C:\tmp\cleanup - Kopie
+        BackupDest: C:\tmp\backup
+        LogMode:    FoldersOnly
+        Log file:   c:\tmp\backup\backup.csv
+Backup complete. All items processed and logged to c:\tmp\backup\backup.csv   

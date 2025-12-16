@@ -21,7 +21,7 @@ The cleanup scripts are designed to:
 
 - **cleanup-dev-task.bat**  
   Batch file to run the PowerShell script.  
-  Accepts a source path and logging mode parameter (`FoldersOnly` or `FoldersAndFiles`).  
+  Accepts a source path, logging mode parameter (`FoldersOnly` or `FoldersAndFiles`), and an optional log file path.  
   Can be used interactively or scheduled as a Windows Task for automated cleanups.
 
 ---
@@ -31,14 +31,15 @@ The cleanup scripts are designed to:
 1. Open a command prompt in the `clean-dev-projects` folder.
 2. Run the batch file with the desired options:
    ```
-   cleanup-dev-task.bat [SourcePath] [FoldersOnly|FoldersAndFiles]
+   cleanup-dev-task.bat [SourcePath] [FoldersOnly|FoldersAndFiles] [LogFilePath]
    ```
-   - If no parameters are provided, it defaults to cleaning `C:\SOURCE-ACTIVE-DIV` and logging both folders and files.
+   - If no parameters are provided, it defaults to cleaning `C:\SOURCE-ACTIVE-DIV`, logging both folders and files, and writing the log to `CLEANUP.csv` in the script directory.
    - Examples:
      ```
      cleanup-dev-task.bat D:\Projects FoldersOnly
-     cleanup-dev-task.bat "C:\My Projects" FoldersAndFiles
+     cleanup-dev-task.bat "C:\My Projects" FoldersAndFiles "C:\Logs\cleanup-log.csv"
      ```
+   - **Note:** If your paths contain spaces, enclose them in quotes.
 
 3. The batch file will execute the PowerShell script with the specified options.
 
@@ -67,6 +68,7 @@ The cleanup scripts are designed to:
 - The log file is overwritten on each run.
 - Use `FoldersOnly` to log only deleted folders, or `FoldersAndFiles` to log both folders and files.
 - You can customize the source path and log file location via parameters or by editing the batch/script defaults.
+- The default log file is `CLEANUP.csv` in the same directory as the batch script.
 
 ---
 
@@ -80,4 +82,4 @@ Timestamp;Name;Type;Directory;Deleted;Full Path
 
 ---
 
-_Last updated: December 14, 2025_
+_Last updated: December 15, 2025_
