@@ -1,4 +1,4 @@
-# Backup Scripts Usage Guide
+# Backup of Non-Committed Files and Folders
 
 This guide explains how to use the provided PowerShell scripts to back up non-committed files and folders from your development projects. These scripts help you safeguard important configuration and environment files before deleting or migrating projects.
 
